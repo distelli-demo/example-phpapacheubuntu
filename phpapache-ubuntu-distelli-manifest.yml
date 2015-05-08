@@ -1,0 +1,21 @@
+<username>/ApachePHPApp:
+  # This Basic Distelli Manifest assumes the following
+  # has been provisioned on the destination deploy server:
+  #
+  # OS: Ubuntu
+  # Installed Packages:
+  #   php5 >= 5.0                [sudo apt-get install php5]
+  #   libapache2-mod-php5 >= 5.0 [sudo apt-get install libapache2-mod-php5] # should be installed w/ php5
+  #   apache2 >= 2.1             [sudo apt-get install apache2]             # should be installed w/ php5
+  #
+
+  Env:
+    # Change this if your html directory differs
+    - HTML_DIR: "/var/www/html/"
+
+  PkgInclude:
+    - webapp.php
+
+  PostInstall:
+    - echo "Beginning PostInstall"
+    - sudo cp -f ./webapp.php $HTML_DIR/

@@ -1,0 +1,25 @@
+<username>/ApachePHPApp:
+  # This Basic Distelli Manifest assumes the following
+  # has been provisioned on the destination deploy server:
+  #
+  # OS: CentOS7
+  # Installed Packages:
+  #   php5 >= 5.0                [sudo yum install php]
+  #   apache2 >= 2.1             [sudo yum install httpd] # should be installed w/php
+  #                              [sudo firewall-cmd --permanent --zone=public --add-service=http]  # port 80 open
+  #                              [sudo firewall-cmd --permanent --zone=public --add-service=https] # port 443 open
+  #                              [sudo firewall-cmd --reload]  # reload to add changes
+  #                              [sudo systemctl enable httpd] # enables httpd on boot
+  #                              [sudo systemctl start httpd]  # starts httpd now
+  #
+
+  Env:
+    # Change this if your html directory differs
+    - HTML_DIR: "/var/www/html/"
+
+  PkgInclude:
+    - webapp.php
+
+  PostInstall:
+    - echo "Beginning PostInstall"
+    - sudo cp -f ./webapp.php $HTML_DIR/
