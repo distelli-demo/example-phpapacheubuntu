@@ -4,7 +4,7 @@
   #
   # OS: Ubuntu
   # Installed Packages:
-  #   php5 >= 5.0                [sudo apt-get install php5]
+  #   php5 >= 5.4                [sudo apt-get install php5]
   #   libapache2-mod-php5 >= 5.0 [sudo apt-get install libapache2-mod-php5] # should be installed w/ php5
   #   apache2 >= 2.1             [sudo apt-get install apache2]             # should be installed w/ php5
   #
